@@ -3,241 +3,199 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>🎁 Önskelista</title>
-<meta name="description" content="Min önskelista – böcker, teknik och småsaker.">
+<meta name="color-scheme" content="dark">
+<title>Önskelista</title>
+<meta name="description" content="Min önskelista.">
 <style>
 :root {
-  --bg: #faf6ef; --card: #ffffff; --border: #e8e0d2;
-  --text: #2d2a26; --muted: #7a7267; --accent: #b4552d;
-  --accent-soft: #f6e8dd; --green: #3d7a4f; --green-soft: #e7f2e9;
-  --warn: #9a6b00; --warn-soft: #fdf3d7;
+  --bg: #0a0a0b; --surface: #121214; --line: #232327;
+  --text: #ececee; --muted: #9a9aa3; --faint: #63636e;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
+html { color-scheme: dark; }
 body {
   background: var(--bg); color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
                'Helvetica Neue', Arial, sans-serif;
-  line-height: 1.55; padding: 24px 16px 48px;
+  line-height: 1.55; padding: 56px 20px 64px;
   overflow-x: hidden; overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
 }
-.wrap { max-width: 720px; margin: 0 auto; }
-header { text-align: center; margin-bottom: 28px; }
-h1 { font-size: 2em; letter-spacing: -0.02em; }
-.count {
-  display: inline-block; margin-top: 8px; padding: 3px 14px;
-  background: var(--accent-soft); color: var(--accent);
-  border-radius: 999px; font-size: 0.85em; font-weight: 600;
+.wrap { max-width: 640px; margin: 0 auto; }
+header { margin-bottom: 44px; }
+h1 { font-size: 1.9em; font-weight: 650; letter-spacing: -0.02em; }
+.sub { color: var(--muted); font-size: 0.9em; margin-top: 6px; }
+.intro { color: var(--muted); font-size: 0.9em; margin-top: 16px; max-width: 520px; }
+.export {
+  display: inline-block; margin-top: 20px; padding: 8px 16px;
+  border: 1px solid var(--line); border-radius: 8px;
+  background: var(--surface); color: var(--text);
+  text-decoration: none; font-size: 0.85em;
 }
-.intro {
-  margin: 16px auto 0; max-width: 560px; color: var(--muted);
-  font-size: 0.95em;
-}
-.intro strong { color: var(--text); }
+.export:hover { border-color: #3d3d46; }
 h2 {
-  font-size: 1.05em; color: var(--muted); text-transform: uppercase;
-  letter-spacing: 0.08em; margin: 30px 0 12px; font-weight: 700;
+  font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.14em;
+  color: var(--faint); font-weight: 600; margin: 40px 0 2px;
 }
-.card {
-  display: flex; gap: 16px; background: var(--card);
-  border: 1px solid var(--border); border-radius: 14px;
-  padding: 16px; margin-bottom: 14px;
-  box-shadow: 0 1px 3px rgba(60, 50, 30, 0.05);
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-.card:hover { border-color: var(--accent); box-shadow: 0 3px 10px rgba(60,50,30,0.10); }
+.item { display: flex; gap: 18px; padding: 20px 0; border-bottom: 1px solid var(--line); }
 .thumb {
-  flex-shrink: 0; width: 104px; height: 132px; border-radius: 10px;
-  background: #f4efe6; display: flex; align-items: center;
-  justify-content: center; overflow: hidden;
+  flex-shrink: 0; width: 64px; height: 88px;
+  display: flex; align-items: center; justify-content: center;
 }
-.thumb img { max-width: 100%; max-height: 100%; object-fit: contain; }
-.body { flex: 1; min-width: 0; display: flex; flex-direction: column; }
-.body h3 { font-size: 1.06em; line-height: 1.35; margin-bottom: 4px; }
+.thumb img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 3px; }
+.body { flex: 1; min-width: 0; }
+.body h3 { font-size: 1em; font-weight: 600; line-height: 1.4; }
 .body h3 a { color: var(--text); text-decoration: none; }
-.body h3 a:hover { color: var(--accent); }
-.desc { color: var(--muted); font-size: 0.88em; margin-bottom: 10px; }
-.meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 10px; }
-.price {
-  background: var(--green-soft); color: var(--green);
-  font-weight: 700; font-size: 0.92em; padding: 3px 12px;
-  border-radius: 999px; white-space: nowrap;
-}
-.shop { color: var(--muted); font-size: 0.85em; }
-.stock {
-  background: var(--warn-soft); color: var(--warn);
-  font-size: 0.78em; font-weight: 600; padding: 3px 10px;
-  border-radius: 999px;
-}
-.btn {
-  margin-top: auto; align-self: flex-start;
-  background: var(--accent); color: #fff; text-decoration: none;
-  font-size: 0.88em; font-weight: 600; padding: 7px 16px;
-  border-radius: 999px; white-space: nowrap;
-}
-.btn:hover { filter: brightness(1.1); }
-footer {
-  margin-top: 36px; text-align: center; color: var(--muted);
-  font-size: 0.82em;
-}
+.body h3 a:hover { text-decoration: underline; }
+.desc { color: var(--muted); font-size: 0.85em; margin-top: 4px; }
+.meta { margin-top: 9px; font-size: 0.85em; color: var(--muted); }
+.price { color: var(--text); font-weight: 600; }
+.oos { color: var(--faint); }
+footer { margin-top: 52px; color: var(--faint); font-size: 0.8em; }
 @media (max-width: 480px) {
-  body { padding: 16px 10px 36px; }
-  h1 { font-size: 1.6em; }
-  .card { gap: 12px; padding: 12px; }
-  .thumb { width: 84px; height: 110px; }
-  .body h3 { font-size: 0.98em; }
-  .desc { font-size: 0.84em; }
+  body { padding: 36px 16px 48px; }
+  h1 { font-size: 1.55em; }
+  .item { gap: 14px; padding: 16px 0; }
+  .thumb { width: 54px; height: 74px; }
+  .body h3 { font-size: 0.95em; }
+  .desc, .meta { font-size: 0.82em; }
 }
 </style>
 </head>
 <body>
 <div class="wrap">
 <header>
-  <h1>🎁 Önskelista</h1>
-  <span class="count">15 önskningar</span>
-  <p class="intro">Här är saker jag önskar mig. Klicka på en artikel för att komma till butiken.
-  <strong>Köper du något?</strong> Säg gärna till i familjechatten, så undviker vi dubletter!</p>
+  <h1>Önskelista</h1>
+  <p class="sub">15 saker · uppdaterad 19 november 2026</p>
+  <p class="intro">Klicka på en artikel för att komma till butiken. Köper du något? Säg gärna till i familjechatten, så undviker vi dubletter.</p>
+  <a class="export" href="wishlist.xlsx" download>Exportera till Excel</a>
 </header>
 <main>
-  <h2>⌚ Teknik <span style="font-weight:400">(1)</span></h2>
-    <article class="card">
+  <h2>Teknik</h2>
+    <div class="item">
       <a class="thumb" href="https://www.elgiganten.se/product/mobiler-tablets-smartklockor/smart-ring/oura-ring-5-smart-ring-storlek-10-silver/1093403" target="_blank" rel="noopener"><img src="images/58b8cb98f1bd28.jpg" alt="Oura Ring 5 Smart Ring — Silver, Size 10" loading="lazy"></a>
       <div class="body">
         <h3><a href="https://www.elgiganten.se/product/mobiler-tablets-smartklockor/smart-ring/oura-ring-5-smart-ring-storlek-10-silver/1093403" target="_blank" rel="noopener">Oura Ring 5 Smart Ring — Silver, Size 10</a></h3>
         <p class="desc">Silver, storlek 10. Black Friday-pris t.o.m. 30 november (ord. 5 390 kr). Full funktionalitet kräver Oura-medlemskap, ca 6 €/mån.</p>
-        <div class="meta"><span class="price">3 590 kr</span><span class="shop">Elgiganten</span></div>
-        <a class="btn" href="https://www.elgiganten.se/product/mobiler-tablets-smartklockor/smart-ring/oura-ring-5-smart-ring-storlek-10-silver/1093403" target="_blank" rel="noopener">Till butiken →</a>
+        <p class="meta"><span class="price">3 590 kr</span> · Elgiganten</p>
       </div>
-    </article>
-  <h2>📚 Böcker <span style="font-weight:400">(11)</span></h2>
-    <article class="card">
+    </div>
+  <h2>Böcker</h2>
+    <div class="item">
       <a class="thumb" href="https://www.amazon.se/Deceit-Desire-Novel-Literary-Structure/dp/0801818303" target="_blank" rel="noopener"><img src="images/b3ce53521113b3.jpg" alt="Deceit, Desire, and the Novel — René Girard" loading="lazy"></a>
       <div class="body">
         <h3><a href="https://www.amazon.se/Deceit-Desire-Novel-Literary-Structure/dp/0801818303" target="_blank" rel="noopener">Deceit, Desire, and the Novel — René Girard</a></h3>
         <p class="desc">Pocket på engelska. Girards klassiker om begär och imitation. Begagnade från 334 kr, nya från ca 376 kr.</p>
-        <div class="meta"><span class="price">från 334,82 kr</span><span class="shop">Amazon.se</span></div>
-        <a class="btn" href="https://www.amazon.se/Deceit-Desire-Novel-Literary-Structure/dp/0801818303" target="_blank" rel="noopener">Till butiken →</a>
+        <p class="meta"><span class="price">från 334,82 kr</span> · Amazon.se</p>
       </div>
-    </article>
-    <article class="card">
+    </div>
+    <div class="item">
       <a class="thumb" href="https://www.adlibris.com/sv/bok/about-looking-9780747599579" target="_blank" rel="noopener"><img src="images/dd3cd5f263aeee.jpg" alt="About Looking — John Berger" loading="lazy"></a>
       <div class="body">
         <h3><a href="https://www.adlibris.com/sv/bok/about-looking-9780747599579" target="_blank" rel="noopener">About Looking — John Berger</a></h3>
         <p class="desc">Pocket, 224 sidor. Essäer om seende: djur, krigsfotografi, Rodin och Giacometti.</p>
-        <div class="meta"><span class="price">191 kr</span><span class="shop">Adlibris</span></div>
-        <a class="btn" href="https://www.adlibris.com/sv/bok/about-looking-9780747599579" target="_blank" rel="noopener">Till butiken →</a>
+        <p class="meta"><span class="price">191 kr</span> · Adlibris</p>
       </div>
-    </article>
-    <article class="card">
+    </div>
+    <div class="item">
       <a class="thumb" href="https://www.adlibris.com/sv/bok/a-canticle-for-leibowitz-9780356513171" target="_blank" rel="noopener"><img src="images/15cd3cce6e8cf3.jpg" alt="A Canticle for Leibowitz — Walter M. Miller" loading="lazy"></a>
       <div class="body">
         <h3><a href="https://www.adlibris.com/sv/bok/a-canticle-for-leibowitz-9780356513171" target="_blank" rel="noopener">A Canticle for Leibowitz — Walter M. Miller</a></h3>
         <p class="desc">Pocket, 336 sidor. Klassisk postapokalyptisk sci-fi om en ny mörk medeltid och mänsklighetens pånyttfödelse.</p>
-        <div class="meta"><span class="price">142 kr</span><span class="shop">Adlibris</span></div>
-        <a class="btn" href="https://www.adlibris.com/sv/bok/a-canticle-for-leibowitz-9780356513171" target="_blank" rel="noopener">Till butiken →</a>
+        <p class="meta"><span class="price">142 kr</span> · Adlibris</p>
       </div>
-    </article>
-    <article class="card">
+    </div>
+    <div class="item">
       <a class="thumb" href="https://www.adlibris.com/sv/bok/material-world-9780753559178" target="_blank" rel="noopener"><img src="images/1d2f0ffa401e01.jpg" alt="Material World — Ed Conway" loading="lazy"></a>
       <div class="body">
         <h3><a href="https://www.adlibris.com/sv/bok/material-world-9780753559178" target="_blank" rel="noopener">Material World — Ed Conway</a></h3>
         <p class="desc">Pocket, 512 sidor. De sex råmaterialen som formar vår civilisation: sand, salt, järn, koppar, olja och litium.</p>
-        <div class="meta"><span class="price">145 kr</span><span class="shop">Adlibris</span></div>
-        <a class="btn" href="https://www.adlibris.com/sv/bok/material-world-9780753559178" target="_blank" rel="noopener">Till butiken →</a>
+        <p class="meta"><span class="price">145 kr</span> · Adlibris</p>
       </div>
-    </article>
-    <article class="card">
+    </div>
+    <div class="item">
       <a class="thumb" href="https://www.adlibris.com/sv/bok/brave-new-world-9780099518471" target="_blank" rel="noopener"><img src="images/21084cb1aa55f3.jpg" alt="Brave New World — Aldous Huxley" loading="lazy"></a>
       <div class="body">
         <h3><a href="https://www.adlibris.com/sv/bok/brave-new-world-9780099518471" target="_blank" rel="noopener">Brave New World — Aldous Huxley</a></h3>
         <p class="desc">Pocket på engelska, 229 sidor. Huxleys dystopiska klassiker från 1932.</p>
-        <div class="meta"><span class="price">128 kr</span><span class="shop">Adlibris</span></div>
-        <a class="btn" href="https://www.adlibris.com/sv/bok/brave-new-world-9780099518471" target="_blank" rel="noopener">Till butiken →</a>
+        <p class="meta"><span class="price">128 kr</span> · Adlibris</p>
       </div>
-    </article>
-    <article class="card">
+    </div>
+    <div class="item">
       <a class="thumb" href="https://www.adlibris.com/sv/bok/the-wall-dancers-9781806172924" target="_blank" rel="noopener"><img src="images/dc1e05f19c5dc8.jpg" alt="The Wall Dancers — Yi-Ling Liu" loading="lazy"></a>
       <div class="body">
         <h3><a href="https://www.adlibris.com/sv/bok/the-wall-dancers-9781806172924" target="_blank" rel="noopener">The Wall Dancers — Yi-Ling Liu</a></h3>
         <p class="desc">Pocket, 336 sidor. Reportage om livet på Kinas internet – frihet och gemenskap bakom den stora brandväggen.</p>
-        <div class="meta"><span class="price">164 kr</span><span class="shop">Adlibris</span></div>
-        <a class="btn" href="https://www.adlibris.com/sv/bok/the-wall-dancers-9781806172924" target="_blank" rel="noopener">Till butiken →</a>
+        <p class="meta"><span class="price">164 kr</span> · Adlibris</p>
       </div>
-    </article>
-    <article class="card">
+    </div>
+    <div class="item">
       <a class="thumb" href="https://www.adlibris.com/sv/bok/the-arabs-9780141986548" target="_blank" rel="noopener"><img src="images/d6591d2d3caf19.jpg" alt="The Arabs — Eugene Rogan" loading="lazy"></a>
       <div class="body">
         <h3><a href="https://www.adlibris.com/sv/bok/the-arabs-9780141986548" target="_blank" rel="noopener">The Arabs — Eugene Rogan</a></h3>
         <p class="desc">Pocket, 736 sidor. Eugene Rogans väldiga historiska översikt över arabvärlden.</p>
-        <div class="meta"><span class="price">224 kr</span><span class="shop">Adlibris</span></div>
-        <a class="btn" href="https://www.adlibris.com/sv/bok/the-arabs-9780141986548" target="_blank" rel="noopener">Till butiken →</a>
+        <p class="meta"><span class="price">224 kr</span> · Adlibris</p>
       </div>
-    </article>
-    <article class="card">
+    </div>
+    <div class="item">
       <a class="thumb" href="https://www.adlibris.com/sv/bok/gilgamesh-9780571357246" target="_blank" rel="noopener"><img src="images/70903464529304.jpg" alt="Gilgamesh — Simon Armitage" loading="lazy"></a>
       <div class="body">
         <h3><a href="https://www.adlibris.com/sv/bok/gilgamesh-9780571357246" target="_blank" rel="noopener">Gilgamesh — Simon Armitage</a></h3>
         <p class="desc">Inbunden, 176 sidor. Simon Armitages återberättande av det gamla mesopotamiska epuset.</p>
-        <div class="meta"><span class="price">194 kr</span><span class="shop">Adlibris</span><span class="stock">⚠️ Tillfälligt slut i butiken</span></div>
-        <a class="btn" href="https://www.adlibris.com/sv/bok/gilgamesh-9780571357246" target="_blank" rel="noopener">Till butiken →</a>
+        <p class="meta"><span class="price">194 kr</span> · Adlibris <span class="oos">· tillfälligt slut i butiken</span></p>
       </div>
-    </article>
-    <article class="card">
+    </div>
+    <div class="item">
       <a class="thumb" href="https://www.adlibris.com/sv/bok/snow-crash-9780241953181" target="_blank" rel="noopener"><img src="images/45a8e300e86994.jpg" alt="Snow Crash — Neal Stephenson" loading="lazy"></a>
       <div class="body">
         <h3><a href="https://www.adlibris.com/sv/bok/snow-crash-9780241953181" target="_blank" rel="noopener">Snow Crash — Neal Stephenson</a></h3>
         <p class="desc">Pocket, 440 sidor. Neal Stephensons cyberpunkklassiker.</p>
-        <div class="meta"><span class="price">122 kr</span><span class="shop">Adlibris</span></div>
-        <a class="btn" href="https://www.adlibris.com/sv/bok/snow-crash-9780241953181" target="_blank" rel="noopener">Till butiken →</a>
+        <p class="meta"><span class="price">122 kr</span> · Adlibris</p>
       </div>
-    </article>
-    <article class="card">
+    </div>
+    <div class="item">
       <a class="thumb" href="https://www.adlibris.com/sv/bok/how-to-take-smart-notes-9783982438801" target="_blank" rel="noopener"><img src="images/429a2f1a842e61.jpg" alt="How to Take Smart Notes — Sönke Ahrens" loading="lazy"></a>
       <div class="body">
         <h3><a href="https://www.adlibris.com/sv/bok/how-to-take-smart-notes-9783982438801" target="_blank" rel="noopener">How to Take Smart Notes — Sönke Ahrens</a></h3>
         <p class="desc">Pocket, 188 sidor. Praktisk metod för anteckningar som gör skrivande och lärande lättare.</p>
-        <div class="meta"><span class="price">186 kr</span><span class="shop">Adlibris</span></div>
-        <a class="btn" href="https://www.adlibris.com/sv/bok/how-to-take-smart-notes-9783982438801" target="_blank" rel="noopener">Till butiken →</a>
+        <p class="meta"><span class="price">186 kr</span> · Adlibris</p>
       </div>
-    </article>
-    <article class="card">
+    </div>
+    <div class="item">
       <a class="thumb" href="https://www.adlibris.com/sv/bok/debt-9781612194196" target="_blank" rel="noopener"><img src="images/996d75d51d456a.jpg" alt="Debt — David Graeber" loading="lazy"></a>
       <div class="body">
         <h3><a href="https://www.adlibris.com/sv/bok/debt-9781612194196" target="_blank" rel="noopener">Debt — David Graeber</a></h3>
         <p class="desc">Pocket, 542 sidor. David Graebers uppmärksammade historia om skuldens första 5 000 år.</p>
-        <div class="meta"><span class="price">241 kr</span><span class="shop">Adlibris</span></div>
-        <a class="btn" href="https://www.adlibris.com/sv/bok/debt-9781612194196" target="_blank" rel="noopener">Till butiken →</a>
+        <p class="meta"><span class="price">241 kr</span> · Adlibris</p>
       </div>
-    </article>
-  <h2>🎁 Övrigt <span style="font-weight:400">(3)</span></h2>
-    <article class="card">
+    </div>
+  <h2>Övrigt</h2>
+    <div class="item">
       <a class="thumb" href="https://store.asteriskmag.com/products/print-subscription-1-year-international-non-us-based?selling_plan=694333866300" target="_blank" rel="noopener"><img src="images/06d02da902df0b.jpg" alt="Asterisk Mag Print Subscription - 1 Year (International)" loading="lazy"></a>
       <div class="body">
         <h3><a href="https://store.asteriskmag.com/products/print-subscription-1-year-international-non-us-based?selling_plan=694333866300" target="_blank" rel="noopener">Asterisk Mag Print Subscription - 1 Year (International)</a></h3>
         <p class="desc">Printprenumeration, 1 år (internationell plan). Kvartalstidskrift som levereras var tredje månad.</p>
-        <div class="meta"><span class="price">100 USD</span><span class="shop">Asterisk Mag</span></div>
-        <a class="btn" href="https://store.asteriskmag.com/products/print-subscription-1-year-international-non-us-based?selling_plan=694333866300" target="_blank" rel="noopener">Till butiken →</a>
+        <p class="meta"><span class="price">100 USD</span> · Asterisk Mag</p>
       </div>
-    </article>
-    <article class="card">
+    </div>
+    <div class="item">
       <a class="thumb" href="https://paperwhisper.com/sv/products/sun-star-ukanmuri-u-shaped-clip-petit?variant=51286656319825" target="_blank" rel="noopener"><img src="images/5a47df53dcc250.jpg" alt="Sun-Star Ukanmuri U-Shaped Clip Petit" loading="lazy"></a>
       <div class="body">
         <h3><a href="https://paperwhisper.com/sv/products/sun-star-ukanmuri-u-shaped-clip-petit?variant=51286656319825" target="_blank" rel="noopener">Sun-Star Ukanmuri U-Shaped Clip Petit</a></h3>
         <p class="desc">U-formad klämma i storlek petit, färg Watery Clear.</p>
-        <div class="meta"><span class="price">60 kr</span><span class="shop">Paperwhisper</span></div>
-        <a class="btn" href="https://paperwhisper.com/sv/products/sun-star-ukanmuri-u-shaped-clip-petit?variant=51286656319825" target="_blank" rel="noopener">Till butiken →</a>
+        <p class="meta"><span class="price">60 kr</span> · Paperwhisper</p>
       </div>
-    </article>
-    <article class="card">
+    </div>
+    <div class="item">
       <a class="thumb" href="https://www.ttpen.com/products/pilot-kakuno-fountain-pen-family-series-smiley-faced-nib?variant=51418542178609&amp;country=SE&amp;currency=SEK" target="_blank" rel="noopener"><img src="images/611ab6be197f04.jpg" alt="Pilot Kakuno Family Series Smiley-Faced Nib (Green, Fine)" loading="lazy"></a>
       <div class="body">
         <h3><a href="https://www.ttpen.com/products/pilot-kakuno-fountain-pen-family-series-smiley-faced-nib?variant=51418542178609&amp;country=SE&amp;currency=SEK" target="_blank" rel="noopener">Pilot Kakuno Family Series Smiley-Faced Nib (Green, Fine)</a></h3>
         <p class="desc">Bläckpenna, grön med fin spets och en liten smiley på nibben. Ur Pilots Family Series.</p>
-        <div class="meta"><span class="price">182 kr</span><span class="shop">ttpen.com</span></div>
-        <a class="btn" href="https://www.ttpen.com/products/pilot-kakuno-fountain-pen-family-series-smiley-faced-nib?variant=51418542178609&amp;country=SE&amp;currency=SEK" target="_blank" rel="noopener">Till butiken →</a>
+        <p class="meta"><span class="price">182 kr</span> · ttpen.com</p>
       </div>
-    </article>
+    </div>
 </main>
-<footer>Senast uppdaterad 19 november 2026 · 15 önskningar</footer>
+<footer>Önskelistan uppdateras automatiskt.</footer>
 </div>
 </body>
 </html>
